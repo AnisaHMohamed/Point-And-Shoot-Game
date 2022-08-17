@@ -18,14 +18,17 @@ class Raven  {
         this.directionY = Math.random() *  5 - 2.5;
         this.markedForDeletion = false;
         this.image = new Image();
-        this.image.src = './assets/raven.png'
+        this.image.src = './assets/raven.png';
+        this.spriteWidth = 271;
+        this.spriteHeight = 194;
     }
     update() {
         this.x  -= this.directionX;
         if (this.x < 0 - this.width) this.markedForDeletion = true;
     }
     draw() {
-        ctx.fillRect(this.x,this.y,this.width,this.height);
+        ctx.strokeRect(this.x,this.y,this.width,this.height);
+        ctx.drawImage(this.image, 0, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height)
     }
  }
 
